@@ -1,9 +1,46 @@
 #include "direction.h"
 #include <xc.h>
 
-void dir(){
+void dir(int direction){
 
+  switch (direction) {
+    case 0://forward
+    {
+      LATBbits.LATB10 = 1;
+      LATBbits.LATB11 = 1;
+      LATBbits.LATB12 = 1;
+      LATBbits.LATB13 = 1;
+    }
+
+    case 1://backford
+    {
+      LATBbits.LATB10 = 0;
+      LATBbits.LATB11 = 0;
+      LATBbits.LATB12 = 0;
+      LATBbits.LATB13 = 0;
+    }
+
+    case 2://turn left
+    {
+      LATBbits.LATB10 = 1;
+      LATBbits.LATB11 = 0;
+      LATBbits.LATB12 = 1;
+      LATBbits.LATB13 = 0;
+
+    }
+
+    case 3://turn right
+    {
+      LATBbits.LATB10 = 0;
+      LATBbits.LATB11 = 1;
+      LATBbits.LATB12 = 0;
+      LATBbits.LATB13 = 1;
+
+    }
+
+  }
 }
+
 
 void pwmInit(){
 
