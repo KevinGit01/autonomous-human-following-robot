@@ -16,12 +16,10 @@ int main(){
   pwmInit();
   __builtin_enable_interrupts();
 
-  dir(2);
+  //dir(1);
+
   while(1){
-    ;
-
+    dir(0);
   }
-
-
   return 0;
 }
