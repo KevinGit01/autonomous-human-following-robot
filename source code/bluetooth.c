@@ -24,16 +24,16 @@ void cmd(void){
     //  NU32_LED1 = 0;
       if(data == 'w'){
         dir(0);
-        speed(100);
+        speed(55);
       }else if(data == 'a'){
         dir(2);
-        speed(100);
+        speed(55);
       }else if (data == 's') {
         dir(1);
-        speed(100);
+        speed(55);
       }else if(data == 'd'){
         dir(3);
-        speed(100);
+        speed(55);
       }else{
         speed(0);
       }

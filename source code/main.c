@@ -7,12 +7,8 @@
 #define BUF_SIZE 200
 
 int main(){
-  char buffer[BUF_SIZE];
-  NU32_Startup();
-
-  NU32_LED1 = 1;
   NU32_LED2 = 1;
-
+  NU32_LED2 = 1;
   __builtin_disable_interrupts();
   pwmInit();
   btInit();
@@ -20,7 +16,7 @@ int main(){
   //dir(1);
 
   while(1){
-    
+
     cmd();
 
   }
