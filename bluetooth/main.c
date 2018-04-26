@@ -33,13 +33,17 @@ int main(){
       if(U1STAbits.URXDA) { // poll to see if there is data to read in RX FIFO
           data = U1RXREG;
         //  NU32_LED1 = 0;
-          if(data == 0x0f){
+          if(data == 'w'){
           NU32_LED2 = 0;
-          }else if(data == 0xff){
+          }else if(data == 'a'){
             LATBbits.LATB0 = 1;
+          }else if (data == 's') {
+            NU32_LED2 = 1;
+            NU32_LED1 = 1;
           }else {
           LATBbits.LATB0 = 0;
           NU32_LED2 = 1;
+          NU32_LED1 = 1;
           }
 
           /*else if(data = 0xff){
