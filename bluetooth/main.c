@@ -35,11 +35,9 @@ int main(){
         //  NU32_LED1 = 0;
           if(data == 0x0f){
           NU32_LED2 = 0;
-          }
-          if(data == 0xff){
-          LATBbits.LATB0 = 1;
-          }
-          if(data == 0x11){
+          }else if(data == 0xff){
+            LATBbits.LATB0 = 1;
+          }else {
           LATBbits.LATB0 = 0;
           NU32_LED2 = 1;
           }
