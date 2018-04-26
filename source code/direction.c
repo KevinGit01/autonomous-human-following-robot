@@ -55,20 +55,17 @@ void dir(int direction){
   }
 }
 
-void fo(void){
-
-      LATBbits.LATB10 = 1;
-      LATBbits.LATB11 = 1;
-      LATBbits.LATB12 = 1;
-      LATBbits.LATB13 = 1;
+void speed(int speed){
+    speed = speed*40;
+    OC1RS = speed;
     }
 
 void pwmInit(){
 
       OC1CONbits.OCM = 0b110;  // PWM mode without fault pin; other OC1CON bits are defaults
       OC1CONbits.OCTSEL = 1;   // Use Timer3 for comparison
-      OC1RS = 4000;             // duty cycle = OC1RS/(PR3+1) = 50%
-      OC1R = 4000;              // initialize before turning OC1 on; afterward it is read-only
+      OC1RS = 0;             // duty cycle = OC1RS/(PR3+1) = 50%
+      OC1R = 0;              // initialize before turning OC1 on; afterward it is read-only
       OC1CONbits.ON = 1;       // turn on OC1
 
       T3CONbits.TCKPS = 0;     // Timer3 prescaler N=1 (1:1)

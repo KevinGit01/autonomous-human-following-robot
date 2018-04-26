@@ -3,7 +3,7 @@
 
 void dir(int);
 void pwmInit();
-void fo(void);
+void speed(int);
 
 
 #endif

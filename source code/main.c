@@ -1,5 +1,6 @@
 #include "NU32.h"
 #include "direction.h"
+#include "bluetooth.h"
 #include <stdio.h>
 
 
@@ -14,14 +15,14 @@ int main(){
 
   __builtin_disable_interrupts();
   pwmInit();
+  btInit();
   __builtin_enable_interrupts();
-  TRISBbits.TRISB1 = 1;
   //dir(1);
 
   while(1){
-    if(PORTBbits.RB1 == 0){
-    dir(0);
-    }
+    
+    cmd();
+
   }
   return 0;
 }
