@@ -1,24 +1,26 @@
-#include "NU32.h"
-#include "direction.h"
-#include "bluetooth.h"
-#include <stdio.h>
+#include "NU32.h"              // constants, functions for startup and UART
+
+void __ISR(_UART_1_VECTOR, IPL1SOFT) IntUart1Handler(void) {
+
+  //the serial com port has to end without line end
+    cmd();
+    IFS0bits.U1RXIF = 0;
 
 
-#define BUF_SIZE 200
+}
 
-int main(){
+int main(void) {
+  NU32_Startup();   // cache on, interrupts on, LED/button init, UART init
+  NU32_LED1 = 1;
   NU32_LED2 = 1;
-  NU32_LED2 = 1;
+  //TRISBbits.TRISB0 = 0;
+  //LATBbits.LATB0 = 0;
   __builtin_disable_interrupts();
   pwmInit();
   btInit();
   __builtin_enable_interrupts();
-  //dir(1);
-
-  while(1){
-
-    cmd();
-
+  while(1) {
+    ;
   }
   return 0;
 }
