@@ -6,8 +6,8 @@
 void btInit(void){
 
   U1MODEbits.BRGH = 0;
-//  U3BRG = (float)((NU32_SYS_FREQ / 38400) / 16) - 1;
-  U1BRG = 520;
+//  U3BRG = (float)((NU32_SYS_FREQ / 9600) / 16) - 1;
+  U1BRG = 520; //baud reate 9600
 
   // configure TX & RX pins
   U1STAbits.UTXEN = 1;
@@ -24,16 +24,16 @@ void cmd(void){
     //  NU32_LED1 = 0;
       if(data == 'w'){
         dir(0);
-        speed(59);
+        speed(63);
       }else if(data == 'a'){
         dir(2);
-        speed(59);
+        speed(63);
       }else if (data == 's') {
         dir(1);
-        speed(59);
+        speed(63);
       }else if(data == 'd'){
         dir(3);
-        speed(59);
+        speed(63);
       }else{
         speed(0);
       }
