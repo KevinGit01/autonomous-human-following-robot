@@ -28,19 +28,19 @@ void dir(int direction){
 
     case 2://turn left
     {
-      LATBbits.LATB10 = 1;
-      LATBbits.LATB11 = 1;
-      LATBbits.LATB12 = 1;
-      LATBbits.LATB13 = 1;
+      LATBbits.LATB10 = 0;
+      LATBbits.LATB11 = 0;
+      LATBbits.LATB12 = 0;
+      LATBbits.LATB13 = 0;
       break;
     }
 
     case 3://turn right
     {
-      LATBbits.LATB10 = 0;
-      LATBbits.LATB11 = 0;
-      LATBbits.LATB12 = 0;
-      LATBbits.LATB13 = 0;
+      LATBbits.LATB10 = 1;
+      LATBbits.LATB11 = 1;
+      LATBbits.LATB12 = 1;
+      LATBbits.LATB13 = 1;
       break;
     }
 
@@ -60,12 +60,29 @@ void speed(int speed){
     OC1RS = speed;
     }
 
+int speedUp(int speed){
+    speed += 10;
+    if(speed >= 100){
+      speed = 100;
+    }
+    return speed;
+    }
+
+
+int speedDown(int speed){
+    speed -= 10;
+    if(speed <= 0){
+      speed = 0;
+    }
+    return speed;
+    }
+
 void pwmInit(){
 
       OC1CONbits.OCM = 0b110;  // PWM mode without fault pin; other OC1CON bits are defaults
       OC1CONbits.OCTSEL = 1;   // Use Timer3 for comparison
       OC1RS = 0;             // duty cycle = OC1RS/(PR3+1) = 50%
-      OC1R = 0;              // initialize before turning OC1 on; afterward it is read-only
+      OC1R = 2000;              // initialize before turning OC1 on; afterward it is read-only
       OC1CONbits.ON = 1;       // turn on OC1
 
       T3CONbits.TCKPS = 0;     // Timer3 prescaler N=1 (1:1)

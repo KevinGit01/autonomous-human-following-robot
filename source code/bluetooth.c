@@ -28,23 +28,26 @@ void btInit(void){
 
 void cmd(void){
 
-  //the serial com port has to end without line end
+  static int v = 50;
   unsigned char data = 0;
   if(U1STAbits.URXDA) { // poll to see if there is data to read in RX FIFO
       data = U1RXREG;
     //  NU32_LED1 = 0;
       if(data == 'w'){
         dir(0);
-        speed(63);
+        speed(v);
       }else if(data == 'a'){
         dir(2);
-        speed(63);
       }else if (data == 's') {
         dir(1);
-        speed(63);
       }else if(data == 'd'){
         dir(3);
-        speed(63);
+      }else if (data == 'j') {
+        v = speedUp(v);
+        speed(v);
+      }else if (data == 'l') {
+        v = speedDown(v);
+        speed(v);
       }else{
         speed(0);
       }
