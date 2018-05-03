@@ -39,6 +39,7 @@ void cmd(void){
         dir(2);
       }else if (data == 's') {
         dir(1);
+        speed(v);
       }else if(data == 'd'){
         dir(3);
       }else if (data == 'j') {

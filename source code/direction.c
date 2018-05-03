@@ -36,26 +36,28 @@ void dir(int direction){
       LATBbits.LATB13 = 0;
       vLeft = v;
       vRight = v;
-      speedRight(v);
-      if(v-50 <= 0){
+      vLeft = v - 50;
+      if(vLeft <= 0){
         vLeft = 0;
       }
+      speedRight(v);
       speedLeft(vLeft);
       break;
     }
 
     case 3://turn right
     {
-      LATBbits.LATB10 = 1;
-      LATBbits.LATB11 = 0;
-      LATBbits.LATB12 = 0;
-      LATBbits.LATB13 = 1;
+      LATBbits.LATB10 = 0;
+      LATBbits.LATB11 = 1;
+      LATBbits.LATB12 = 1;
+      LATBbits.LATB13 = 0;
       vLeft = v;
       vRight = v;
-      speedLeft(v);
-      if(v-50 <= 0){
+      vRight = v -50;
+      if(vRight <= 0){
         vRight = 0;
       }
+      speedLeft(v);
       speedRight(vRight);
       break;
     }
@@ -66,13 +68,7 @@ void dir(int direction){
       LATBbits.LATB11 = 0;
       LATBbits.LATB12 = 0;
       LATBbits.LATB13 = 0;
-      vLeft = v;
-      vRight = v;
-      speedRight(v);
-      if(v-50 <= 0){
-        vLeft = 0;
-      }
-      speedLeft(vLeft);
+      speed(v);
       break;
     }
 
@@ -82,13 +78,7 @@ void dir(int direction){
       LATBbits.LATB11 = 1;
       LATBbits.LATB12 = 1;
       LATBbits.LATB13 = 1;
-      vLeft = v;
-      vRight = v;
-      speedLeft(v);
-      if(v-50 <= 0){
-        vRight = 0;
-      }
-      speedRight(vRight);
+      speed(v);
       break;
     }
 
@@ -112,12 +102,12 @@ void speed(int speed){
 // motor 1 and 4
 void speedLeft(int speed){
     speed = speed*40;
-    OC1RS = speed;
+    OC2RS = speed;
     }
 // motor 2 and 3
 void speedRight(int speed){
     speed = speed*40;
-    OC2RS = speed;
+    OC1RS = speed;
     }
 
 
