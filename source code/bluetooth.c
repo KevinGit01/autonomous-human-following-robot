@@ -28,7 +28,6 @@ void btInit(void){
 
 void cmd(void){
 
-  static int v = 50;
   unsigned char data = 0;
   if(U1STAbits.URXDA) { // poll to see if there is data to read in RX FIFO
       data = U1RXREG;
@@ -48,6 +47,10 @@ void cmd(void){
       }else if (data == 'l') {
         v = speedDown(v);
         speed(v);
+      }else if (data == 'q') {
+        dir(4);
+      }else if (data == 'e') {
+        dir(5);
       }else{
         speed(0);
       }
