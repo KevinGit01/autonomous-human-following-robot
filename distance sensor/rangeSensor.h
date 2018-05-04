@@ -53,6 +53,6 @@
 
 
 void rangeInit(void);
-unsigned int readRange(void);
+unsigned short readRange(void);
 
 #endif
