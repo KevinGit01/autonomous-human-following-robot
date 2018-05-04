@@ -10,10 +10,15 @@
 int main(void) {
   char message[MAX_MESSAGE_LENGTH];
   unsigned short distance = 0;
+  unsigned char status = 0;
   rangeInit();
   NU32_Startup(); // cache on, interrupts on, LED/button init, UART init
   while (1) {
 
+
+
+
+  //  distance = readRange();
     distance = readRange();
     sprintf(message,"distance: %d",distance);
     NU32_WriteUART3(message);                     // send message back

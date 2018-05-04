@@ -52,7 +52,10 @@
 #define INTSRC_RST 0 << 3 //Interrupt fires when HW reset occurs
 
 
-void rangeInit(void);
+unsigned char rangeInit(void);
+unsigned char rangeInit1(void);
 unsigned short readRange(void);
+char meaureStatus(void);
+char gotoStandby(void);
 
 #endif
