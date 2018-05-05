@@ -29,6 +29,7 @@ void btInit(void){
 void cmd(void){
 
   unsigned char data = 0;
+
   if(U1STAbits.URXDA) { // poll to see if there is data to read in RX FIFO
       data = U1RXREG;
     //  NU32_LED1 = 0;
@@ -55,5 +56,7 @@ void cmd(void){
       }else{
         speed(0);
       }
+
+      robotStatus = data;
   }
 }

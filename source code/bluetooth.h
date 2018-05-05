@@ -3,6 +3,6 @@
 
 void btInit(void);
 void cmd(void);
-
+char robotStatus = 'b';//initial break
 
 #endif
