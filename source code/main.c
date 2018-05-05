@@ -15,6 +15,7 @@ void __ISR(_UART_1_VECTOR, IPL1SOFT) IntUart1Handler(void) {
     IFS0bits.U1RXIF = 0;
 }
 
+
 int main(void) {
   NU32_Startup();   // cache on, interrupts on, LED/button init, UART init
   NU32_LED1 = 1;
@@ -24,9 +25,10 @@ int main(void) {
   btInit();
   rangeInit();
   __builtin_enable_interrupts();
-  unsigned short distance;
-  while(1){
 
+  while(1){
+	
+    unsigned short distance;
     distance = readRange();
     if(distance <= 200 ){
       speed(0);
@@ -53,6 +55,7 @@ int main(void) {
         speed(0);
       }
     }
+
   }
 
   return 0;

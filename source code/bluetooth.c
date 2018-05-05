@@ -34,25 +34,27 @@ void cmd(void){
       data = U1RXREG;
     //  NU32_LED1 = 0;
       if(data == 'w'){
-        dir(0);
+        dir(0);  //forward
         speed(v);
       }else if(data == 'a'){
-        dir(2);
+        dir(2); //turn left
       }else if (data == 's') {
-        dir(1);
+        dir(1); // backward
         speed(v);
       }else if(data == 'd'){
-        dir(3);
+        dir(3); //turn right
       }else if (data == 'j') {
-        v = speedUp(v);
+        v = speedUp(v); //speed up
         speed(v);
       }else if (data == 'l') {
-        v = speedDown(v);
+        v = speedDown(v); // speed down
         speed(v);
       }else if (data == 'q') {
-        dir(4);
+        dir(4);   // rotate to the left
       }else if (data == 'e') {
-        dir(5);
+        dir(5);   // rotate to the right
+      }else if (data == 'o') {
+        //autonomous mode
       }else{
         speed(0);
       }
