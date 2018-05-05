@@ -1,32 +1,25 @@
 #include "autonomous.h"
+#include "direction.h"
+#include "NU32.h"
 
-
-void auto(void){
+void autonomous(void){
     unsigned short distance;
     distance = readRange();
-    if(distance <= 200 ){
-      speed(0);
-    }else{
-      if(robotStatus == 'w'){
-        dir(0);
-        speed(v);
-      }else if(robotStatus == 'a'){
-        dir(2);
-      }else if (robotStatus == 's') {
-        dir(1);
-        speed(v);
-      }else if(robotStatus == 'd'){
-        dir(3);
-      }else if (robotStatus == 'j') {
-        speed(v);
-      }else if (robotStatus == 'l') {
-        speed(v);
-      }else if (robotStatus == 'q') {
+    if(distance <= 400 ){
+      dir(4);
+      _CP0_SET_COUNT(0);
+      while(_CP0_GET_COUNT() < 8000000) { ; } // delay 10ms
+
+      if(readRange() > distance){
         dir(4);
-      }else if (robotStatus == 'e') {
-        dir(5);
       }else{
-        speed(0);
+        while(readRange() <= 400){
+        dir(5);
+        }
       }
-    }
+
+    }else{
+      dir(0); //default foward
+      speed(v);
+      }
 }

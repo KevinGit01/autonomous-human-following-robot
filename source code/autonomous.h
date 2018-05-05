@@ -2,4 +2,6 @@
 #define AUTONOMOUS__H__
 #include "rangeSensor.h"
 
+void autonomous(void);
+
 #endif

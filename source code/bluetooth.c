@@ -2,6 +2,7 @@
 #include <xc.h>
 #include "NU32.h"
 #include "direction.h"
+#include "rangeSensor.h"
 
 void btInit(void){
   // set baud to 230400, to match terminal emulator; use default 8N1 of UART
@@ -53,10 +54,17 @@ void cmd(void){
         dir(4);
       }else if (data == 'e') {
         dir(5);
+      }else if (data == 'o') {
+          robotStatus = 'o';
+          //enter autonomous mode
       }else{
         speed(0);
       }
 
       robotStatus = data;
   }
+}
+
+char getRobotStatus(void){
+    return robotStatus;
 }
