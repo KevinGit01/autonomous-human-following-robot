@@ -5,7 +5,7 @@
 void autonomous(void){
     unsigned short distance;
     distance = readRange();
-    if(distance <= 400 ){
+    if(distance <= 600 ){
       dir(4);
       _CP0_SET_COUNT(0);
       while(_CP0_GET_COUNT() < 8000000) { ; } // delay 10ms
@@ -13,7 +13,7 @@ void autonomous(void){
       if(readRange() > distance){
         dir(4);
       }else{
-        while(readRange() <= 400){
+        while(readRange() <= 600){
         dir(5);
         }
       }
