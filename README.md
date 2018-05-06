@@ -12,7 +12,7 @@ could also be applied to robotics pets. Who doesn't want a robotic dog?
 ## Demo video ##
 ______
 The following video is the obstacle detection demo based on lidar.
-[obstacle detection](https://youtu.be/zOojbgCSgTY)
+[![obstacle detection](https://github.com/KevinGit01/autonomous-tracking-robot/blob/master/pics/lidar.png)](https://youtu.be/zOojbgCSgTY)
 ## Platform ##
 ______
 The carrying robot is a four wheel robot with a high torque motor attached to
