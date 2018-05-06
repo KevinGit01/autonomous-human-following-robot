@@ -9,9 +9,10 @@ The goal of this project is to design a robot which follows its user. The
 autonomous human following robot could be applied to multiple areas. For instance,
 a smart luggage that follows a traveler helps relieve stress, and the same idea
 could also be applied to robotics pets. Who doesn't want a robotic dog?
-## Platform ##
+## Demo video ##
 ______
-[![obstacle detection](https://github.com/KevinGit01/autonomous-tracking-robot/blob/master/demo/obstacle%20detection.MOV)
+The following video is the obstacle detection demo based on lidar.
+[obstacle detection](https://youtu.be/zOojbgCSgTY)
 ## Platform ##
 ______
 The carrying robot is a four wheel robot with a high torque motor attached to
