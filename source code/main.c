@@ -3,7 +3,7 @@
 #include "bluetooth.h"
 #include "rangeSensor.h"
 #include "autonomous.h"
-
+#include "servo.h"
 
 
 #define MAX_MESSAGE_LENGTH 200
@@ -25,6 +25,7 @@ int main(void) {
   pwmInit();
   btInit();
   rangeInit();
+  servoInit();
   __builtin_enable_interrupts();
   char message[MAX_MESSAGE_LENGTH];
   TRISBbits.TRISB0 = 0;
